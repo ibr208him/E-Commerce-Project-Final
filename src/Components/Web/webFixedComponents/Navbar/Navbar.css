@@ -1,0 +1,24 @@
+.navbar{
+    background-color: rgb(23, 28, 1)!important;
+
+    
+}
+.nav-link,.navbar-brand{
+    color: white!important;
+}
+
+.user-profile-info .profile-img img{
+height: 40px;
+width: 40px;
+}
+
+
+.dropdown-toggle {
+text-align: center;
+}
+
+.dropdown-item{
+    font-size: 22px;
+    
+
+}

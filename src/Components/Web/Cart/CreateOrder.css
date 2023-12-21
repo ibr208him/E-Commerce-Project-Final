@@ -1,0 +1,19 @@
+.products .product-info.create{
+    flex-grow: 1;
+    display: flex;
+    gap:16px;
+    min-width: 240px;
+}
+
+.cart-summary-order{
+    padding:2px;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    border-radius: 6px;
+    border: 1px solid #6C7275;
+    background-color: #97d8e9;
+    width:500px;
+    margin-top: 47px;
+
+}

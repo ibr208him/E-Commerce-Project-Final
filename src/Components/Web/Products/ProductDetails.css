@@ -1,0 +1,32 @@
+.addToCart{
+font-size: 25px;
+font-weight:600;
+text-decoration: none;
+color:rgb(185, 35, 37);
+background-color: bisque;
+padding:15px;
+}
+
+.subImageContainer{
+    width:200px;
+    height:200px;
+}
+.commenter-image{
+    width:150px;
+    height:150px;
+}
+.commenter-image img{
+    width: 100% !important;
+    height:100! important
+}
+.product-details-page-content{
+    background-color: rgb(60, 198, 198);
+}
+.product-infoo{
+    background-color: rgb(6, 112, 112);
+}
+
+.make-review{
+    background-color: rgb(154, 170, 7);
+
+}

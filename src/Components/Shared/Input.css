@@ -1,0 +1,17 @@
+.eye-icon{
+    right:10px;
+    border: none !important;
+    padding:5px !important; 
+}
+.passwordDiv{
+    background-color:white !important;
+}
+
+.password-input:focus{
+    border:none !important;
+  
+}
+password-input{
+    border: none !important;
+    outline: none !important;
+}
