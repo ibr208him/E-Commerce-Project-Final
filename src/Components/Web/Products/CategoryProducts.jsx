@@ -3,6 +3,10 @@ import { Link, useParams } from 'react-router-dom'
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import './CategoryProducts.css'
+import { useContext } from 'react';
+import { UserContext } from '../Context/UserContext.jsx';
+import { CartContext } from './../Context/CartContext';
+
 
 export default function CategoryProducts() {
     const {id}=useParams('id');
@@ -10,10 +14,19 @@ export default function CategoryProducts() {
     const getCategoryProducts=async()=>{
         const {data}=await axios.get(`${import.meta.env.VITE_API_URL}/products/category/${id}`); 
         return(data);   
+
+
     }
 
 const {data,isLoading}=useQuery('categoryProducts',getCategoryProducts);
 console.log(data,'rtrtrtr'); // if you remove '?' ,error will happen as data took time to be received at the first time
+
+const { userTokenContext, setUserTokenContext } = useContext(UserContext);
+const {addToCartContext}=useContext(CartContext);
+  const addToCart=async (productId)=>{
+    const res=await addToCartContext(productId);
+    console.log(res);
+  }
 
 if(isLoading){
   return <h2> loading.................</h2>
@@ -42,6 +55,9 @@ if(isLoading){
                     details
                   </Link>
                 </div>
+                <button className='justify-content-center d-flex align-items-center bg-success rounded-2 w-100 fs-5 my-2' onClick={()=>addToCart(product._id)} disabled={userTokenContext?false:true}> <p className="me-2 text-white">Add to Cart</p>
+                <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 576 512"><path fill="#fff" d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z"/></svg>
+                </button>
               </div>
 
               </div>

@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { searchSchemaValidation } from "../Validate/SchemaValidation.js";
 import { filterSchemaValidation } from "../Validate/SchemaValidation.js";
 import { CartContext } from '../Context/CartContext.jsx'
+import { UserContext } from "../Context/UserContext.jsx";
 
 
 export default function Products() {
@@ -45,7 +46,7 @@ export default function Products() {
   const [loading, setLoading] = useState(true);
 
   console.log(page);
-
+  const { userTokenContext, setUserTokenContext } = useContext(UserContext);
   /********************************************************* */
   const getProducts = async () => {
     setLoading(true);
@@ -448,7 +449,7 @@ const {addToCartContext}=useContext(CartContext);
                    <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 448 512"><path fill="#d92417" d="M128 40c0-22.1 17.9-40 40-40s40 17.9 40 40V188.2c8.5-7.6 19.7-12.2 32-12.2c20.6 0 38.2 13 45 31.2c8.8-9.3 21.2-15.2 35-15.2c25.3 0 46 19.5 47.9 44.3c8.5-7.7 19.8-12.3 32.1-12.3c26.5 0 48 21.5 48 48v48 16 48c0 70.7-57.3 128-128 128l-16 0H240l-.1 0h-5.2c-5 0-9.9-.3-14.7-1c-55.3-5.6-106.2-34-140-79L8 336c-13.3-17.7-9.7-42.7 8-56s42.7-9.7 56 8l56 74.7V40zM240 304c0-8.8-7.2-16-16-16s-16 7.2-16 16v96c0 8.8 7.2 16 16 16s16-7.2 16-16V304zm48-16c-8.8 0-16 7.2-16 16v96c0 8.8 7.2 16 16 16s16-7.2 16-16V304c0-8.8-7.2-16-16-16zm80 16c0-8.8-7.2-16-16-16s-16 7.2-16 16v96c0 8.8 7.2 16 16 16s16-7.2 16-16V304z"/></svg>                   
                   </Link>
                 </div>
-                <button className='justify-content-center d-flex align-items-center bg-success rounded-2 w-100 fs-5 my-2' onClick={()=>addToCart(product._id)}> <p className="me-2 text-white">Add to Cart</p>
+                <button className='justify-content-center d-flex align-items-center bg-success rounded-2 w-100 fs-5 my-2' onClick={()=>addToCart(product._id)} disabled={userTokenContext?false:true}> <p className="me-2 text-white">Add to Cart</p>
                 <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 576 512"><path fill="#fff" d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z"/></svg>
                 </button>
 

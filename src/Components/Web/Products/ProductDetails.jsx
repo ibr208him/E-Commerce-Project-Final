@@ -62,6 +62,7 @@ avg=getReviewRating();
 console.log(getDateAndTime("2023-12-13T21:17:14.769Z").newDate);
 
 
+const { userTokenContext, setUserTokenContext } = useContext(UserContext);
 
 
 /***************************************************************************** */
@@ -219,7 +220,7 @@ const inputProps = [
         <p className="my-5 fw-bold fs-4 text-dark w-100 bg-white px-2 py-1 rounded-2">
           Final Price: ${data?.product.finalPrice}
         </p>
-        <button className='btn btn-danger w-50 p-2 fs-5' onClick={()=>addToCart(data?.product._id)}> Add to Cart</button>
+        <button className='btn btn-danger w-50 p-2 fs-5' onClick={()=>addToCart(data?.product._id)} disabled={userTokenContext?false:true}> Add to Cart</button>
         </div>
         <div className="make-review p-4 rounded-4">
           
