@@ -11,7 +11,7 @@ import './Categories.css'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import  {faFacebook,faTwitter,faSquareInstagram,faSquareXTwitter}  from '@fortawesome/free-brands-svg-icons'
-
+import {photo} from'./Images/p2.JPG'
 
 export default function Categories() {
 
@@ -51,7 +51,7 @@ export default function Categories() {
 </div>
   </div>
   <div className=' col-6 p-5'>
-    <img src='../../../../public/p2.JPG' className='img-fluid'/>
+    <img src={photo} className='img-fluid'/>
   </div>
   </div>
 </div>
