@@ -11,7 +11,7 @@ import './Categories.css'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import  {faFacebook,faTwitter,faSquareInstagram,faSquareXTwitter}  from '@fortawesome/free-brands-svg-icons'
-import {photo} from'./Images/p2.JPG'
+import {photo} from './Images/p2.JPG'
 
 export default function Categories() {
 
